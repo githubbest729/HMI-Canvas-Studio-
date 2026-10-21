@@ -35,3 +35,6 @@ table{border-collapse:collapse;width:100%}th,td{border-bottom:1px solid var(--li
 .el.flt svg{filter:drop-shadow(0 0 4px #c62828);animation:flash 1s steps(2) infinite}.el.flt .val{color:#ff8a80}.el.wrn svg{filter:drop-shadow(0 0 4px #e0a100)}
 @keyframes flash{50%{opacity:.35}}@media(prefers-reduced-motion:reduce){.el.flt svg{animation:none}}
 .port{fill:#fff;stroke:#e0a100;stroke-width:2}.port.hot{fill:#e0a100}
+.el svg{filter:drop-shadow(0 2px 2px rgba(0,0,0,.35))}.pal svg{filter:none}.val{border:1px solid #2b3338;box-shadow:0 1px 2px rgba(0,0,0,.5)}.lbl{font-weight:600;box-shadow:0 1px 2px rgba(0,0,0,.3)}
+.val.in{border:0;box-shadow:none}
+.tools select,.bar select{padding:.3rem}tr.cat th{background:var(--bg);cursor:default}td input{width:7rem;padding:.2rem}.tools{flex-wrap:wrap}
