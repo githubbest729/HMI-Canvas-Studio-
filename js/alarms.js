@@ -1,14 +1,14 @@
 /* Live simulation engine, HH/H/L/LL checking, alarm table with ACK/clear/filter/sort */
 (function(){
-const $=s=>document.querySelector(s);let alarms=[],sortK='time',sortD=-1,seq=1,active={};
-const analog=e=>HMI.types[e.type].analog,digital=e=>/pump|motor|conveyor|solenoid|light|button/.test(e.type);
+const $=s=>document.querySelector(s);let alarms=[],sortK='time',sortD=-1,seq=1,active={};HMI.act=active;
+const analog=e=>HMI.types[e.type].analog,digital=e=>/pump|motor|conveyor|solenoid|control|light|button/.test(e.type);
 function level(e){const v=e.value;return v>=e.hh?'HH':v>=e.h?'H':v<=e.ll?'LL':v<=e.l?'L':null}
 function tick(){
  HMI.els.forEach(e=>{
   HMI.forced=HMI.forced||{};
   if(e.tag in HMI.forced){e.value=HMI.forced[e.tag];delete HMI.forced[e.tag]}
   else if(analog(e)){const span=e.euMax-e.euMin;e.value=Math.min(e.euMax,Math.max(e.euMin,e.value+(Math.random()-.5)*span*.06))}
-  else if(digital(e)&&Math.random()<.03){e.value=e.value?0:1}
+  else if(digital(e)){const rot=/pump|motor|conveyor/.test(e.type);if(e.fault){if(--e._ft<=0)e.fault=false}else if(rot&&e.value&&Math.random()<.01){e.fault=true;e._ft=6;e.value=0;HMI.toast('Fault: '+e.tag)}else if(Math.random()<.03)e.value=e.value?0:1}
   HMI.vals[e.tag]=e.value;
   if(!analog(e))return;
   const lv=level(e),k=e.id;
