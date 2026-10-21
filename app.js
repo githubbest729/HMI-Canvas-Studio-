@@ -1,6 +1,6 @@
 /* App shell: PWA registration, tab routing, toasts, scripting sandbox, shared state */
-window.HMI={els:[],sel:null,vals:{},ev:{},on(n,f){(this.ev[n]=this.ev[n]||[]).push(f)},emit(n,d){(this.ev[n]||[]).forEach(f=>f(d))},
- save(){try{localStorage.setItem('hmi-layout',JSON.stringify(this.els))}catch(e){}},
+window.HMI={els:[],pipes:[],hist:[],fut:[],sel:null,vals:{},ev:{},on(n,f){(this.ev[n]=this.ev[n]||[]).push(f)},emit(n,d){(this.ev[n]||[]).forEach(f=>f(d))},
+ save(){const s=JSON.stringify({els:this.els,pipes:this.pipes});try{localStorage.setItem('hmi-layout',s)}catch(e){}if(this._last===s)return;const n=Date.now();if(this._last!==undefined&&(n-(this._t||0)>500||!this.hist.length))this.hist.push(this._last);this._last=s;this._t=n;this.fut=[];if(this.hist.length>100)this.hist.shift()},
  toast(m){const t=document.createElement('div');t.className='toast';t.textContent=m;document.getElementById('toasts').append(t);setTimeout(()=>t.remove(),2800)}};
 (function(){
  const $=s=>document.querySelector(s);

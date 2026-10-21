@@ -18,7 +18,7 @@
 <main>
 <section id="tab-canvas" class="tab on">
  <aside class="palette" id="palette"></aside>
- <div class="stagewrap"><div class="tools"><button id="btnExport">Export JSON</button><button id="btnImport">Import JSON</button><button id="btnClear">Clear canvas</button><input type="file" id="fileIn" accept=".json" hidden></div><div id="stage"></div></div>
+ <div class="stagewrap"><div class="tools"><button id="btnPipe">Draw pipe</button><button id="btnUndo" title="Ctrl+Z">Undo</button><button id="btnRedo" title="Ctrl+Y">Redo</button><button id="btnExport">Export JSON</button><button id="btnImport">Import JSON</button><button id="btnClear">Clear canvas</button><input type="file" id="fileIn" accept=".json" hidden></div><div id="stage"></div></div>
  <aside class="props" id="props"><p class="muted">Drag a symbol onto the canvas, then select it to edit its tag.</p></aside>
 </section>
 <section id="tab-alarms" class="tab"><div class="bar"><select id="fLevel"><option value="">All levels</option><option>HH</option><option>H</option><option>L</option><option>LL</option></select><select id="fState"><option value="">All states</option><option>Unacked</option><option>Acked</option></select><button id="ackAll">Acknowledge all</button><button id="clrAck">Clear acknowledged</button></div><table id="alarmTable"><thead><tr><th data-k="time">Time</th><th data-k="tag">Tag</th><th data-k="level">Level</th><th data-k="value">Value</th><th data-k="state">State</th><th></th></tr></thead><tbody></tbody></table></section>

@@ -15,7 +15,7 @@ function tick(){
   if(lv&&active[k]!==lv){active[k]=lv;alarms.push({id:seq++,time:Date.now(),tag:e.tag,level:lv,value:e.value.toFixed(1)+' '+e.unit,state:'Unacked'});HMI.toast(`${lv} alarm: ${e.tag}`)}
   else if(!lv)delete active[k];
  });
- HMI.render();draw();HMI.emit('tick');
+ if(!HMI.busy)HMI.render();draw();HMI.emit('tick');
 }
 function draw(){
  const fl=$('#fLevel').value,fs=$('#fState').value;
