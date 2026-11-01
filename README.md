@@ -311,4 +311,4 @@ Clicking **"Download Complete Asset Bundle"** from the bottom toolbar renders an
 
 Distributed under the **MIT License**.
 
-> **Corporate & Quality Notice:** Developed for use under the engineering processes and quality frameworks of **Al Gurg Automation and Controls (Dubai, U.A.E.)**. Ensure all finalized HMI designs comply with project-specific Functional Design Specifications (FDS), site-specific QHSE procedures, and **Annexure-SCT-HR-001**.
+> **Corporate & Quality Notice:** Developed for use under the engineering processes and quality frameworks of ** Automation and Controls (Dubai, U.A.E.)**. Ensure all finalized HMI designs comply with project-specific Functional Design Specifications (FDS), site-specific QHSE procedures, and **Annexure-SCT-HR-001**.
